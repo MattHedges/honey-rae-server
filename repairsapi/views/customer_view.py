@@ -31,9 +31,8 @@ class CustomerView(ViewSet):
         serialized = CustomerSerializer(customer, context={'request': request})
         return Response(serialized.data, status=status.HTTP_200_OK)
 
-
 class CustomerSerializer(serializers.ModelSerializer):
     """JSON serializer for customers"""
     class Meta:
         model = Customer
-        fields = ('id', 'user', 'address')
+        fields = ('id', 'full_name', 'address')
